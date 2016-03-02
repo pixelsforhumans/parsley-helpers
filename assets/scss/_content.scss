@@ -1,0 +1,79 @@
+//
+// Content sections
+//
+
+@mixin content-section() {
+    padding-top: ($spacer * 2);
+    padding-bottom: ($spacer * 2);
+}
+
+.section-default {
+    @include content-section;
+}
+
+
+
+// Form controls - tbd
+
+.radio-group {
+    @extend .form-control-static;
+    position: relative;
+    top: -0.15rem;
+}
+
+.form-control-static {
+    
+    label {
+        margin-right: 1rem;
+        margin-bottom: 0;
+    }
+}
+
+.form-control-icon {
+    display: inline-block;
+}
+
+.remove-filter {
+    @include clickable-control;
+}
+
+
+.inline-control-wrapper {
+    display: inline-block;
+    
+    &.addtag-wrapper {
+        width: 37%; // Leaves room for the Add button, when col is 1/3 width
+        max-width: 15rem; // Nicer when col is 2/3 width
+    }
+}
+
+.inline-control-spacer-left {
+    margin-left: $form-hspace-inline;
+}
+.inline-control-spacer-right {
+    margin-right: $form-hspace-inline;
+}
+
+.input-aligned {
+    @extend .form-control-label;
+    padding-left: $input-padding-x;
+    padding-right: $input-padding-x;
+}
+
+.button-row {
+    @extend .m-b-half;
+    
+    .btn {
+        @extend .m-b-half;
+        margin-right: $form-hspace-inline;
+    }
+}
+
+.alert-button-row {
+    margin-top: -(($alert-padding / 2) - 1);
+    margin-bottom: -(($alert-padding / 2) - 1);
+}
+
+
+
+

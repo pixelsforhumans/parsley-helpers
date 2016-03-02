@@ -1,0 +1,45 @@
+//
+// General Layout
+//
+
+// Body
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-top: 3.4rem; // for fixed navbar & 100% height
+} 
+
+
+// Typography
+
+h6, .h6 {
+    font-family: $font-family-base;
+    font-weight: bold;
+}
+
+.lead-like {
+    font-size: 1.125rem;
+    
+    h6, .h6 {
+        font-size: 1.125rem;
+    }
+}
+
+.midweight {
+    // font-weight: 500; Changed due to PC readability issues
+    font-weight: bold;
+}
+
+
+// Navbar
+
+.navbar .logo {
+    @extend .img-fluid;
+}
+

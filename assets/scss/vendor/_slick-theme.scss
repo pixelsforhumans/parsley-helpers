@@ -1,0 +1,250 @@
+@charset "UTF-8";
+
+// Default Variables
+
+$slick-font-path: "../fonts/slick/" !default;
+$slick-font-family: "slick" !default;
+$slick-loader-path: "../img/ui/" !default;
+$slick-arrow-color: #999 !default;
+$slick-dot-color: black !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-prev-character: "\f053" !default;
+$slick-next-character: "\f054" !default;
+$slick-dot-character: "•" !default;
+$slick-dot-size: 10px !default;
+$slick-opacity-default: 0.5 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+
+@function slick-image-url($url) {
+    @if function-exists(image-url) {
+        @return image-url($url);
+    }
+    @else {
+        @return url($slick-loader-path + $url);
+    }
+}
+
+@function slick-font-url($url) {
+    @if function-exists(font-url) {
+        @return font-url($url);
+    }
+    @else {
+        @return url($slick-font-path + $url);
+    }
+}
+
+/* Slider */
+
+.slick-list {
+    .slick-loading & {
+        background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
+    }
+}
+
+/* Icons */
+@if $slick-font-family == "slick" {
+    @font-face {
+        font-family: "slick";
+        src: slick-font-url("slick.eot");
+        src: slick-font-url("slick.eot?#iefix") format("embedded-opentype"), slick-font-url("slick.woff") format("woff"), slick-font-url("slick.ttf") format("truetype"), slick-font-url("slick.svg#slick") format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }
+}
+
+/* Arrows */
+
+.slick-prev,
+.slick-next {
+    position: absolute;
+    display: block;
+    bottom: -1rem;
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+    padding: 5px;
+    padding-top: 75%;
+    border: none;
+    outline: none;
+    z-index: 2; // Fix layering problem
+    
+    @media (min-width: 620px) { // Point at which the side arrows stop working
+        top: 40%;
+        height: 200px;
+        width: 180px;
+        margin-top: -100px;
+        padding-top: 5px;
+    }
+    @include media-breakpoint-up(md) {
+        top: 46%;
+        height: 280px;
+        width: 200px;
+        margin-top: -140px;
+    }
+    @include media-breakpoint-up(lg) {
+        height: 480px;
+        width: 320px;
+        margin-top: -240px;
+    }
+    
+    &:hover, &:focus {
+        outline: none;
+        background: transparent;
+        color: transparent;
+        &:before {
+            opacity: $slick-opacity-on-hover;
+        }
+    }
+    &.slick-disabled:before {
+        opacity: 0;
+    }
+}
+
+.slick-prev:before, .slick-next:before {
+    font-family: FontAwesome;
+    font-size: 20px;
+    line-height: 1;
+    color: $slick-arrow-color;
+    opacity: $slick-opacity-default;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+    text-align: left;
+    left: 0px;
+    padding-right: 35%;
+    [dir="rtl"] & {
+        left: auto;
+        right: 0px;
+    }
+    
+    @media (min-width: 620px) { // Point at which the side arrows stop working
+        left: -32px;
+        padding-right: 5px;
+        [dir="rtl"] & {
+            left: auto;
+            right: -32px;
+        }
+    }
+    
+    &:before {
+        content: $slick-prev-character;
+        [dir="rtl"] & {
+            content: $slick-next-character;
+        }
+    }
+}
+
+.slick-next {
+    text-align: right;
+    right: 0px;
+    padding-left: 35%;
+    [dir="rtl"] & {
+        left: 0px;
+        right: auto;
+    }
+    
+    @media (min-width: 620px) { // Point at which the side arrows stop working
+        right: -32px;
+        padding-left: 5px;
+        [dir="rtl"] & {
+            left: -32px;
+            right: auto;
+        }
+    }
+    
+    &:before {
+        content: $slick-next-character;
+        [dir="rtl"] & {
+            content: $slick-prev-character;
+        }
+    }
+}
+
+.slick-disabled {
+    cursor: default;
+}
+
+/* Dots */
+
+.slick-slider {
+    margin-bottom: 30px;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: -45px;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    padding-bottom: 3px;
+    width: 100%;
+    
+    @media (min-width: 620px) {
+        padding-bottom: 0;
+    }
+    li {
+        position: relative;
+        display: inline-block;
+        height: 20px;
+        width: 16px;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        
+        @media (min-width: 620px) { // Point at which the side arrows stop working
+            height: 20px;
+            width: 20px;
+            margin: 0 1px;
+        }
+        button {
+            border: 0;
+            background: transparent;
+            display: block;
+            height: 100%;
+            width: 100%;
+            outline: none;
+            line-height: 0px;
+            font-size: 0px;
+            color: transparent;
+            padding: 5px;
+            cursor: pointer;
+            &:hover, &:focus {
+                outline: none;
+                &:before {
+                    opacity: $slick-opacity-on-hover;
+                }
+            }
+            &:before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: $slick-dot-character;
+                width: 16px;
+                height: 20px;
+                font-family: $slick-font-family;
+                font-size: 8px;
+                line-height: 20px;
+                text-align: center;
+                color: $slick-dot-color;
+                opacity: $slick-opacity-not-active;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                
+                @media (min-width: 620px) {
+                    width: 20px;
+                    font-size: $slick-dot-size;
+                }
+            }
+        }
+        &.slick-active button:before {
+            color: $slick-dot-color-active;
+            opacity: $slick-opacity-default;
+        }
+    }
+}

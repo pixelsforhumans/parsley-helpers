@@ -1,0 +1,330 @@
+        <!-- <h5 class="category-title m-b-1">Interaction &amp; UX Design</h5> -->
+
+
+
+<!-- 
+            <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-xl-3 col-xl-offset-0">
+                
+                <h2>Featured project</h2>
+                
+            </div>
+            <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-xl-6 col-xl-offset-0">
+                
+                <div class="proj-featured m-b-1">
+                    <div class="media">
+                        <div class="media-left">
+                            <i class="fa fa-5x fa-fw fa-align-center fa-mortar-board"></i>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">College Application Assistant</h3>
+                            <p class="lead">
+                                Interaction &amp; UX Design for a complex, custom-built content management system. <span class="featured-link">View project<i class="fa fa-angle-right"></i></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            -->
+
+
+
+/*
+@mixin card-portfolio ($bgcolor) {
+    @extend .card-inverse;
+    background-color: $bgcolor;
+    background-image: radial-gradient(
+          circle closest-corner at 50% 2rem,
+          lighten($bgcolor, 10%),
+          $bgcolor
+        );
+    
+    .card-header {
+        color: transparentize(#fff, 0.2);
+        //background-color: $bgcolor;
+        background: transparent;
+        border-bottom: none;
+    }
+    
+    .card-block {
+        color: transparentize(#fff, 0.2);
+        background-color: transparentize(#333, 0.2);
+    }
+    h5 {
+        font-family: $font-family-base;
+    }
+}
+*/
+
+/*
+@mixin card-portfolio ($bgcolor) {
+    border: none;
+    
+    .card-header {
+        background-image: radial-gradient(
+          circle closest-corner at 50% 3rem,
+          #fff,
+          #f2f2f2
+        );
+        color: $bgcolor;
+        border-radius: $card-border-radius;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border: solid 1px $card-border-color;
+        border-bottom: solid 1px $bgcolor;
+    }
+    
+    .card-block {
+    }
+    h5 {
+        font-family: $font-family-base;
+    }
+}
+*/
+
+
+
+
+
+<!--
+            <div class="col-proj-thumb card-cybersecurity">
+                <a href="#" class="card m-b-1">
+                    <div class="card-header">
+                        <div class="text-xs-center">
+                            <div class="p-a-1">
+                                <i class="fa fa-5x fa-fw fa-server"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <h5 class="m-b-0">Cybersecurity Threat Visualizer</h5>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-proj-thumb card-stresstesting">
+                <a href="#" class="card m-b-1">
+                    <div class="card-header">
+                        <div class="text-xs-center">
+                            <div class="p-a-1">
+                                <i class="fa fa-5x fa-fw fa-sliders"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <h5 class="m-b-0">Financial Stress Impact Tester</h5>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-proj-thumb card-retailsuite">
+                <a href="#" class="card m-b-1">
+                    <div class="card-header">
+                        <div class="text-xs-center">
+                            <div class="p-a-1">
+                                <i class="fa fa-5x fa-fw fa-tag"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <h5 class="m-b-0">Retail Management Suite</h5>
+                    </div>
+                </a>
+            </div>
+            -->
+
+
+
+
+
+
+
+<!--
+        <h5 class="category-title m-b-1">Consulting &amp; Workshops</h5>
+        
+        <div class="row">
+            
+            <div class="col-proj-thumb card-cloudmonitorapp">
+                <a href="#" class="card m-b-1">
+                    <div class="card-header">
+                        <div class="text-xs-center">
+                            <div class="p-a-1">
+                                <i class="fa fa-5x fa-fw fa-cloud" style="color: rgba(0,0,0,0.15);"></i>
+                                <i class="fa fa-4x fa-fw fa-search" style="position: absolute; top: 2.0rem; left: 47%;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <h5 class="m-b-0">Thinger Mabobber</h5>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-proj-thumb card-cloudmonitorapp">
+                <a href="#" class="card m-b-1">
+                    <div class="card-header">
+                        <div class="text-xs-center">
+                            <div class="p-a-1">
+                                <i class="fa fa-5x fa-fw fa-cloud" style="color: rgba(0,0,0,0.15);"></i>
+                                <i class="fa fa-4x fa-fw fa-search" style="position: absolute; top: 2.0rem; left: 47%;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <h5 class="m-b-0">Thinger Mabobber</h5>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-proj-thumb card-cloudmonitorapp">
+                <a href="#" class="card m-b-1">
+                    <div class="card-header">
+                        <div class="text-xs-center">
+                            <div class="p-a-1">
+                                <i class="fa fa-5x fa-fw fa-cloud" style="color: rgba(0,0,0,0.15);"></i>
+                                <i class="fa fa-4x fa-fw fa-search" style="position: absolute; top: 2.0rem; left: 47%;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <h5 class="m-b-0">Thinger Mabobber</h5>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+        
+        <h5 class="category-title m-b-1">User Interface Design</h5>
+        
+        <div class="row">
+            
+            <div class="col-proj-thumb card-cloudmonitorapp">
+                <a href="#" class="card m-b-1">
+                    <div class="card-header">
+                        <div class="text-xs-center">
+                            <div class="p-a-1">
+                                <i class="fa fa-5x fa-fw fa-cloud" style="color: rgba(0,0,0,0.15);"></i>
+                                <i class="fa fa-4x fa-fw fa-search" style="position: absolute; top: 2.0rem; left: 47%;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <h5 class="m-b-0">Thinger Mabobber</h5>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-proj-thumb card-cloudmonitorapp">
+                <a href="#" class="card m-b-1">
+                    <div class="card-header">
+                        <div class="text-xs-center">
+                            <div class="p-a-1">
+                                <i class="fa fa-5x fa-fw fa-cloud" style="color: rgba(0,0,0,0.15);"></i>
+                                <i class="fa fa-4x fa-fw fa-search" style="position: absolute; top: 2.0rem; left: 47%;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <h5 class="m-b-0">Thinger Mabobber</h5>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-proj-thumb card-cloudmonitorapp">
+                <a href="#" class="card m-b-1">
+                    <div class="card-header">
+                        <div class="text-xs-center">
+                            <div class="p-a-1">
+                                <i class="fa fa-5x fa-fw fa-cloud" style="color: rgba(0,0,0,0.15);"></i>
+                                <i class="fa fa-4x fa-fw fa-search" style="position: absolute; top: 2.0rem; left: 47%;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <h5 class="m-b-0">Thinger Mabobber</h5>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+        -->
+        
+        
+        
+        
+        
+        
+        
+        <!-- 
+       
+<div class="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+    <div class="card">
+        <div class="card-header text-xs-center" style="color: #fff; background-color: #00598B; border-bottom: none;">
+            <div class="p-a-1">
+                <i class="fa fa-5x fa-fw fa-align-center fa-mortar-board"></i>
+            </div>
+        </div>
+        <div class="card-block p-y-1">
+            <h5 class="m-b-0">College Application Assistant</h5>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+    <div class="card card-inverse" style="color: #fff; background-color: #00598B;">
+        <div class="card-block">
+            <div class="text-xs-center">
+                <div class="p-a-1">
+                    <i class="fa fa-5x fa-fw fa-align-center fa-mortar-board"></i>
+                </div>
+            </div>
+            <h5 class="text-xs-center">College Application Assistant</h5>
+        </div>
+    </div>
+</div> 
+
+-->
+
+
+
+
+
+.col-proj-thumb {
+    // Standardize column behavior
+    @media (min-width: 460px) and (max-width: map-get($grid-breakpoints, sm)) {
+        @include make-col();
+        @include make-col-span(6);
+    }
+    @extend .col-sm-6;
+    @extend .col-md-6;
+    @extend .col-lg-3;
+    @extend .col-xl-3;
+    
+    // Clear project thumbs appropriately
+    @include media-breakpoint-down(sm) {
+        &:nth-child(2n+3) { // Every other, starting at 3
+            clear: left;
+        }
+    }
+    @include media-breakpoint-only(md) {
+        /*&:nth-child(3n+4) { // Every 3rd, starting at 4
+            clear: left;
+        }*/
+        &:nth-child(2n+3) { // Every other, starting at 3
+            clear: left;
+        }
+    }
+    @include media-breakpoint-only(lg) {
+        /*&:nth-child(3n+4) { // Every 3rd, starting at 4
+            clear: left;
+        }*/
+        &:nth-child(4n+5) { // Every 4th, starting at 5
+            clear: left;
+        }
+    }
+    @include media-breakpoint-up(xl) {
+        &:nth-child(4n+5) { // Every 4th, starting at 5
+            clear: left;
+        }
+    }
+}

@@ -1,0 +1,76 @@
+// Fonts
+
+// Source Sans Pro (local TTF)
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/source-sans-pro/SourceSansPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/source-sans-pro/SourceSansPro-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/source-sans-pro/SourceSansPro-Semibold.ttf') format('truetype');
+    font-weight: bold;
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/source-sans-pro/SourceSansPro-SemiboldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+// Merriweather (local OTF)
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../fonts/merriweather/Merriweather-Light.otf') format('truetype');
+    font-weight: normal;
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../fonts/merriweather/Merriweather-LightItalic.otf') format('truetype');
+    font-weight: normal;
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../fonts/merriweather/Merriweather-Regular.otf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../fonts/merriweather/Merriweather-Italic.otf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../fonts/merriweather/Merriweather-Bold.otf') format('truetype');
+    font-weight: bold;
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../fonts/merriweather/Merriweather-BoldItalic.otf') format('truetype');
+    font-weight: bold;
+    font-weight: 700;
+    font-style: italic;
+}

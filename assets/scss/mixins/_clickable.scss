@@ -1,0 +1,72 @@
+// Clickable
+//
+// Skin for clickable UI elements (like column toggles)
+
+@mixin clickable() {
+    cursor: pointer;
+    
+    &.disabled, 
+    &.inactive {
+        
+        &,
+        &:hover, 
+        &:active, 
+        &:focus {
+            cursor: default;
+        }
+    }
+}
+
+@mixin clickable-control() {
+    @include clickable;
+    @extend .text-muted;
+    
+    &.active, 
+    &:hover, 
+    &:active, 
+    &:focus {
+        color: $body-color;
+    }
+    
+    &.disabled, 
+    &.inactive {
+        
+        &,
+        &:hover, 
+        &:active, 
+        &:focus {
+            color: $gray-lightish;
+        }
+    }
+}
+
+@mixin selectable-area() {
+    @include clickable;
+    
+    &:hover, 
+    &:active, 
+    &:focus {
+        background-color: $selectable-hover-bg-color;
+    }
+    
+    &.active, 
+    &.selected {
+        background-color: $selectable-active-bg-color;
+        
+        .text-muted {
+            color: $selectable-active-muted-color;
+        }
+    }
+    
+    &.disabled, 
+    &.inactive {
+        
+        &,
+        &:hover, 
+        &:active, 
+        &:focus {
+            color: $gray-light;
+            background-color: $gray-lightish;
+        }
+    }
+}
