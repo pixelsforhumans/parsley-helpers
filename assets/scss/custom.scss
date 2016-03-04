@@ -1,0 +1,36 @@
+// Custom CSS for Parsley Helpers
+
+//
+// General Layout
+//
+
+// Body
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-top: 3.4rem; // for fixed navbar & 100% height
+}
+
+
+
+
+
+//
+// Content Sections
+//
+
+@mixin content-section() {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: solid 1px #ccc;
+}
+
+.section-default {
+    @include content-section;
+}

@@ -1,0 +1,13 @@
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 3.4rem; }
+
+.section-default {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: solid 1px #ccc; }

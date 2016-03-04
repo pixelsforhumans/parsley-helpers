@@ -14,49 +14,150 @@
     
     <link rel="icon" href="favicon.ico">
     
-    <title>Pixels Bootstrap Scaffold</title>
+    <title>Parsley Helpers</title>
         
-    <!-- Core CSS based on Bootstrap -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Bootstrap dist -->
+    <link rel="stylesheet" href="assets/components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
     
 </head>
 <body>
 
-    <nav class="navbar navbar-fixed-top navbar-light bg-lighter">
-        <a name="top"></a>
-        
-        <a class="navbar-brand" href="index.html">
-            Pixels Bootstrap Scaffold        </a>
-        <ul class="nav navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-            </li>
-        </ul>
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+        <div class="container">
+            <a name="top"></a>
+            
+            <a class="navbar-brand" href="index.html">
+                Parsley Helpers            </a>
+            <ul class="nav navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
     </nav>
-<div class="container">
-
-    <section class="section-default">
+<section class="section-default">
+    <div class="container">
         
-        <h1>Pixels Bootstrap Scaffold</h1>
+        <h1>Parsley Helpers</h1>
         
         <p class="lead">
-            Use this document as a way to quickly start any new project.
+            Below is a form using ParsleyJS for client-side validation.
         </p>
         
-        <p>
-             All you get is this text and a mostly barebones HTML document.
-        </p>
+    </div>
+</section>
+    
+<section class="section-default">
+    <div class="container">
         
-    </section>
+        <div class="row">
+            <div class="col-md-9 col-lg-6">
+    
+                <form id="myForm">
+                    
+                    <fieldset class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <small class="text-muted">We'll never share your email with anyone else.</small>
+                    </fieldset>
+                    
+                    <fieldset class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </fieldset>
+                    
+                    <fieldset class="form-group">
+                        <label for="exampleSelect1">Example select</label>
+                        <select class="form-control" id="exampleSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </fieldset>
+                    
+                    <!--
+                    <fieldset class="form-group">
+                        <label for="exampleSelect2">Example multiple select</label>
+                        <select multiple class="form-control" id="exampleSelect2">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </fieldset>
+                    -->
+                    
+                    <fieldset class="form-group">
+                        <label for="exampleTextarea">Example textarea</label>
+                        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                    </fieldset>
+                    
+                    <!--
+                    <fieldset class="form-group">
+                        <label for="exampleInputFile">File input</label>
+                        <input type="file" class="form-control-file" id="exampleInputFile">
+                        <small class="text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                    </fieldset>
+                    -->
+                    
+                    <div class="radio">
+                        <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                        Option one is this and that&mdash;be sure to include why it's great
+                        </label>
+                    </div>
+                    
+                    <div class="radio">
+                        <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                        Option two can be something else
+                        </label>
+                    </div>
+                    
+                    <!--
+                    <div class="radio disabled">
+                        <label>
+                        <input type="radio" name="optionsRadiosXXXXX" id="optionsRadios3XXXXX" value="option3" disabled>
+                        Option three is disabled
+                        </label>
+                    </div>
+                    -->
+                    
+                    <div class="checkbox">
+                        <label>
+                        <input type="checkbox"> Check me out
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                
+                </form>
+            
+            </div>
+        </div>
+    
+    </div>
+</section>
 
-</div>
-
+    <footer class="site-footer">
+        <div class="container">
+    
+            <p class="p-t-2 p-b-2 text-muted">By Jim O'Neill, Pixels for Humans, LLC.</p>
+    
+        </div>
+    </footer>
+    
     <!-- All the JavaScript -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -64,11 +165,13 @@
     <!-- Tether library, for Bootstrap tooltips/popovers -->
     <script src="assets/js/vendor/tether.min.js"></script>
     <!-- Bootstrap core plugins -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
     <!-- Chosen for jQuery, for auto-complete select controls -->
     <script src="assets/js/vendor/chosen.jquery.min.js"></script>
+    <!-- Parsley Helpers -->
+    <script src="assets/js/parsley-helpers.js"></script>
     <!-- Custom JS -->
     <script src="assets/js/custom.js"></script>
 
