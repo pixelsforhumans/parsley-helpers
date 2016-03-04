@@ -11,3 +11,17 @@ body {
   padding-top: 2rem;
   padding-bottom: 2rem;
   border-bottom: solid 1px #ccc; }
+
+.form-section:not(:last-of-type) {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px #ddd;
+  margin-bottom: 1rem; }
+
+label {
+  font-weight: bold; }
+  .radio > label, .checkbox > label {
+    font-weight: normal; }
+
+.hidden {
+  display: none !important; }

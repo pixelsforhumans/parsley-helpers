@@ -34,3 +34,41 @@ body {
 .section-default {
     @include content-section;
 }
+
+@mixin box() {
+    padding: 1rem;
+    border: solid 1px #ddd;
+}
+
+.form-section:not(:last-of-type) {
+    //@include box;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: solid 1px #ddd;
+    margin-bottom: 1rem;
+}
+
+
+// 
+// Form controls
+//
+
+label {
+    font-weight: bold;
+    
+    .radio > &, 
+    .checkbox > & {
+        font-weight: normal;
+    }
+}
+
+
+
+//
+// Utilities
+// 
+
+.hidden {
+    display: none !important;
+}
+
