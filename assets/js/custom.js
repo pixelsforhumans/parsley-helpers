@@ -53,19 +53,71 @@ $(document).ready(function () {
     // Form stuff
     //
     
+    // Bind forms to Parsley for validation
+    // ------------------------------------
+    
+    $('#myForm').parsley({
+        excluded: "input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled]"
+    });
+    
+    
+    // Add custom Parsley validators
+    // -----------------------------
+    
+    addCustomValidators();
+    
+    
+    // Manage showing/hiding form sections
+    // -----------------------------------
+    
+    // Payment Method
+    
+    $(document).on('change', '#selectPaymentMethod', function (evt) {
+        var cc = '[data-rel-payment-method="creditcard"]';
+        var ec = '[data-rel-payment-method="echeck"]';
+        switch ($(this).val()) {
+            case "Credit Card":
+                hideShow(ec, cc);
+                break;
+            case "eCheck":
+                hideShow(cc, ec);
+                break;
+            default:
+                hideShow(ec, cc);
+        }
+    });
+    
+    // Payment Type
+    
+    $(document).on('change', 'input:radio[name="optionsPaymentType"]', function (evt) {
+        var ot = '[data-rel-payment-type="onetime"]';
+        var rc = '[data-rel-payment-type="recurring"]';
+        switch ($(this).val()) {
+            case "One-time":
+                hideShow(rc, ot);
+                break;
+            case "Recurring":
+                hideShow(ot, rc);
+                break;
+            default:
+                hideShow(rc, ot);
+        }
+    });
+    
+    
+    // Button actions
+    // --------------
+    
     $('#btnSubmitPayment').on('click', function (evt) {
         evt.preventDefault();
-        console.log("Successful submission");
-        hideShow('#formStep1', '#formStep2');
-        /*
         validateForm('#myForm', function () {
             // On success
-            // Build the form submission result, go to next step
+            console.log("Successful submission");
+            hideShow('#formStep1', '#formStep2');
         }, function () {
             // On error
             // Nothing beyond Parsley defaults
         });
-        */
     });
     
     $('#btnBack').on('click', function (evt) {

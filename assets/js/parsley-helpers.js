@@ -1,14 +1,12 @@
-/* 
-    PARSLEY HELPERS!!!!! 
+/*==========================================================
     
-    Note: eventually we should actually drop the 'pixels-' from the repo name.
-*/
+    Parsley Helper Functions
 
-
-// Copied in from EEPayment
+=========================================================*/
 
 
 // Utility for callbacks
+
 function runCallback(fn, options) {
     if (typeof fn === "function") { fn(options); }
 }
@@ -25,15 +23,18 @@ function runCallback(fn, options) {
 
 
 // Utilities for managing Parsley validation
+
+var incInputs = $(Parsley.options.inputs).not(Parsley.options.excluded);
+
 function disableInputs(parent) {
     // When we disable inputs, we don't care about the ones inside radio options;
     // just disable them all to prevent validation
-    $(parent).find('input[type="text"], select').prop('disabled', true);
+    $(parent).find(incInputs).prop('disabled', true);
 }
 function enableInputs(parent) {
     // But when we enable inputs, we do care about the ones inside radio options;
     // only enable a radio-option-input if its radio option is checked 
-    var inputs = $(parent).find('input[type="text"], select');
+    var inputs = $(parent).find(incInputs);
     inputs.each(function() {
         // If it's inside a radio, test for checked
         var radio = $(this).closest('label').find('input[type="radio"]');
@@ -91,32 +92,7 @@ function toggleRadioTextInputs(radio) {
 
 
 
-
-
-function validateForm(form, success, error) {
-    var f = $(form);
-    f.parsley().validate();
-    
-    if (f.parsley().isValid()) {
-        runCallback(success);
-    } else {
-        runCallback(error);
-    }
-}
-
-
-// ** On Document Ready
-
-$(document).ready(function () {
-    
-    // Bind forms to Parsley for validation
-    // ------------------------------------
-    
-    $('#myForm').parsley();
-    
-    // Custom validators for Parsley
-    // -----------------------------
-    
+function addCustomValidators() {
     window.Parsley.addValidator('date', {
         requirementType: 'string',
         validateString: function (value) {
@@ -158,25 +134,16 @@ $(document).ready(function () {
             es: 'El valor debe ser un número de tarjeta de crédito válida.'
         }
     });
+}
+
+
+function validateForm(form, success, error) {
+    var f = $(form);
+    f.parsley().validate();
     
-    
-    // Button actions
-    // -------------------
-
-    $('#btnSubmit').on('click', function (evt) {
-        evt.preventDefault();
-        validateForm('#myForm', function () {
-            // On success
-            // Build the form submission result, go to next step
-        }, function () {
-            // On error
-            // Nothing beyond Parsley defaults
-        });
-    });
-
-});
-
-
-
-
-
+    if (f.parsley().isValid()) {
+        runCallback(success);
+    } else {
+        runCallback(error);
+    }
+}
