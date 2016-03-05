@@ -14,7 +14,7 @@ body {
     height: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding-top: 3.4rem; // for fixed navbar & 100% height
+    //padding-top: 3.4rem; // for fixed navbar & 100% height
 }
 
 
@@ -49,6 +49,8 @@ body {
 }
 
 
+
+
 // 
 // Form controls
 //
@@ -62,6 +64,31 @@ label {
     }
 }
 
+
+
+
+//
+// Parsley validation messages
+//
+
+.parsley-error {
+    border-color: #cc0000;
+    
+    &:focus {
+        border-color: #cc0000;
+        //box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(217, 83, 79, 0.6);
+    }
+}
+
+.parsley-errors-list {
+    list-style: none outside;
+    padding: 5px 0;
+    margin-bottom: 0;
+
+    li {
+        color: #cc0000; 
+    }
+}
 
 
 //

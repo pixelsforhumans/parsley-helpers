@@ -24,12 +24,13 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+    <nav class="navbar navbar-full navbar-dark bg-inverse">
         <div class="container">
             <a name="top"></a>
             
             <a class="navbar-brand" href="index.html">
                 Parsley Helpers            </a>
+            <!--
             <ul class="nav navbar-nav">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -41,6 +42,7 @@
                     <a class="nav-link" href="#">Contact</a>
                 </li>
             </ul>
+            -->
         </div>
     </nav>
 <section class="section-default">
@@ -113,12 +115,12 @@
                                     </label>
                                 </div>
                                 <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsPaymentAmount" id="optionsPaymentAmount3" value="Custom">
+                                    <label id="labelCustomPaymentAmount">
+                                        <input type="radio" name="optionsPaymentAmount" id="optionsPaymentAmount3" value="Custom" data-toggle-target="#inputGrpCustomPaymentAmount">
                                         Specific amount: 
-                                        <div class="input-group" style="margin-top: 0.25em;">
+                                        <div class="input-group" id="inputGrpCustomPaymentAmount" data-toggled-by="#optionsPaymentAmount3" style="margin-top: 0.25em;">
                                             <span class="input-group-addon">$</span>
-                                            <input type="text" id="inputCustomPaymentAmount" class="form-control radio-inner-field" aria-label="Specific amount" data-parsley-type="number" data-parsley-errors-container="#labelCustomPaymentAmount" style="width: 10em;" required disabled>
+                                            <input type="text" id="inputCustomPaymentAmount" class="form-control" aria-label="Specific amount" data-parsley-type="number" data-parsley-errors-container="#labelCustomPaymentAmount" style="width: 10em;" required>
                                         </div>
                                     </label>
                                 </div>
@@ -138,12 +140,12 @@
                                     </label>
                                 </div>
                                 <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRecurPaymentAmount" id="optionsRecurPaymentAmount2" value="Custom">
+                                    <label id="labelRecurCustomPaymentAmount">
+                                        <input type="radio" name="optionsRecurPaymentAmount" id="optionsRecurPaymentAmount2" value="Custom" data-toggle-target="#inputGrpRecurCustomPaymentAmount">
                                         Specific amount each month: 
-                                        <div class="input-group" style="margin-top: 0.25em;">
+                                        <div class="input-group" id="inputGrpRecurCustomPaymentAmount" data-toggled-by="#optionsRecurPaymentAmount2" style="margin-top: 0.25em;">
                                             <span class="input-group-addon">$</span>
-                                            <input type="text" id="inputRecurCustomPaymentAmount" class="form-control radio-inner-field" aria-label="Specific amount" data-parsley-type="number" data-parsley-errors-container="#labelRecurCustomPaymentAmount" style="width: 10em;" required disabled>
+                                            <input type="text" id="inputRecurCustomPaymentAmount" class="form-control" aria-label="Specific amount" data-parsley-type="number" data-parsley-errors-container="#labelRecurCustomPaymentAmount" style="width: 10em;" required>
                                         </div>
                                     </label>
                                 </div>

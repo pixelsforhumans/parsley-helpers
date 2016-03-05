@@ -4,8 +4,7 @@ html {
 body {
   height: 100%;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  padding-top: 3.4rem; }
+  -moz-osx-font-smoothing: grayscale; }
 
 .section-default {
   padding-top: 2rem;
@@ -22,6 +21,18 @@ label {
   font-weight: bold; }
   .radio > label, .checkbox > label {
     font-weight: normal; }
+
+.parsley-error {
+  border-color: #cc0000; }
+  .parsley-error:focus {
+    border-color: #cc0000; }
+
+.parsley-errors-list {
+  list-style: none outside;
+  padding: 5px 0;
+  margin-bottom: 0; }
+  .parsley-errors-list li {
+    color: #cc0000; }
 
 .hidden {
   display: none !important; }

@@ -4,93 +4,84 @@
 
 =========================================================*/
 
+// Standardize Parsley initialization options
+// ------------------------------------------
 
-// Utility for callbacks
+// We add '[disabled]' to the list of exclusions, so that we can
+// show/hide fields dynamically and disable their child fields, 
+// which allows Parsley to work properly.
 
-function runCallback(fn, options) {
-    if (typeof fn === "function") { fn(options); }
-}
-
-/*
-    Note for below: rather than all the complicated traversal about radio button children...
-    let's just specify '.selectable-child' and '.selectable-parent' classes 
-    (really they don't have to be parent/child at all, just associated)
-    which we can check within that utility function.
-    
-    Also let's specify a common set of jQuery objects for form fields that can be enabled/disabled,
-    and use that below.
-*/
+var parsleyOptions = {
+    excluded: "input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled]"
+};
 
 
-// Utilities for managing Parsley validation
+// Utilities for enabling/disabling fields
+// ---------------------------------------
 
-var incInputs = $(Parsley.options.inputs).not(Parsley.options.excluded);
+// When form fields get shown/hidden dynamically, Parsley needs to be reset
+// in order for validation to work properly.
 
-function disableInputs(parent) {
-    // When we disable inputs, we don't care about the ones inside radio options;
-    // just disable them all to prevent validation
-    $(parent).find(incInputs).prop('disabled', true);
-}
-function enableInputs(parent) {
-    // But when we enable inputs, we do care about the ones inside radio options;
-    // only enable a radio-option-input if its radio option is checked 
-    var inputs = $(parent).find(incInputs);
-    inputs.each(function() {
-        // If it's inside a radio, test for checked
-        var radio = $(this).closest('label').find('input[type="radio"]');
-        if (radio.length > 0) {
-            if (radio.is(":checked")) {
-                $(this).prop('disabled', false);
-            }
-        } else {
-            // If not inside a radio, just enable it
-            $(this).prop('disabled', false);
-        }
-    });
-}
 function resetParsley(form) { 
-    // Necessary for correct validation if form fields change dynamically
     $(form).parsley().destroy();
-    $(form).parsley();
+    $(form).parsley(parsleyOptions);
 }
 
+// The set of form field objects we want to enable/disable should be 
+// the same as Parsley's included objects, with the added fact that
+// we only need to care about those that are [required]. 
+
+var incInputs = $(Parsley.options.inputs).not(Parsley.options.excluded).filter('[required]');
+
+// When we disable inputs, we don't care about special cases.
+// But when we enable inputs, we sometimes need to care, so we can 
+// optionally check for a `.do-not-enable` flag on the input or any ancestors.
+
+function disableInputsWithin(obj) {
+    $(obj).find(incInputs).prop('disabled', true);
+    resetParsley($(obj).closest('form'));
+}
+
+function enableInputsWithin(obj, filter) {
+    var inputs = $(obj).find(incInputs);
+    if (filter) {
+        inputs = inputs.filter(':not(.do-not-enable):not(.do-not-enable *)');
+    }
+    inputs.prop('disabled', false);
+    resetParsley($(obj).closest('form'));
+}
+
+// Hiding/showing form sections is a matter of:
+// 1. Toggling the container's visibility
+// 2. Toggling enabled/disabled on all form field children,
+//    but leaving any .do-not-enable fields alone.
 
 function hideFormSection(sections) {
     var s = $(sections);
     s.each(function() {
-        // Hide the container in the DOM
         $(this).addClass('hidden');
-        // Disable input fields to turn off validation
-        disableInputs($(this));
-        // Reset Parsley validation parameters on parent form
-        var form = $(this).closest('form');
-        resetParsley(form);
+        disableInputsWithin($(this));
     });
 }
+
 function showFormSection(sections) {
     var s = $(sections);
     s.each(function() {
-        // Show the container in the DOM
         $(this).removeClass('hidden');
-        // Enable input fields to turn on validation
-        enableInputs($(this));
-        // Reset Parsley validation parameters on parent form
-        var form = $(this).closest('form');
-        resetParsley(form);
+        enableInputsWithin($(this), true);
     });
 }
 
-function toggleRadioTextInputs(radio) {
-    var r = $(radio);
-    var parent = radio.closest('.form-group');
-    if (r.val() == "Custom") {
-        enableInputs(parent);
-    } else {
-        disableInputs(parent);
-    }
+// In most cases we'll use both Hide and Show together
+
+function hideShowFormSections(x, y) {
+    hideFormSection(x);
+    showFormSection(y);
 }
 
 
+// Define all custom Parsley validator functions
+// ---------------------------------------------
 
 function addCustomValidators() {
     window.Parsley.addValidator('date', {
@@ -136,14 +127,16 @@ function addCustomValidators() {
     });
 }
 
+// Validate the form and run success/error callbacks
+// -------------------------------------------------
 
 function validateForm(form, success, error) {
     var f = $(form);
     f.parsley().validate();
     
     if (f.parsley().isValid()) {
-        runCallback(success);
+        if (typeof success === "function") { success(); }
     } else {
-        runCallback(error);
+        if (typeof error === "function") { error(); }
     }
 }

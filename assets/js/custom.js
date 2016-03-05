@@ -4,103 +4,79 @@
 
 =========================================================*/
 
-
-//
-// Functions
-//
-
-
-// Get HTML content of an element
-
-function getHtmlContent(srcElem) {
-    $(srcElem).html();
-}
-
-// Hide one thing, then show another
-
-function hideShow(x, y) {
-    $(x).addClass('hidden');
-    $(y).removeClass('hidden');
-}
-
-//
-// Document ready
-//
-
 $(document).ready(function () {
     
-    //
-    //  Bootstrap Components
-    //
-    
-    // Initialize tooltips everywhere
-    
-    $('[data-toggle="tooltip"]').tooltip();
-    
-    // Initialize popovers everywhere
-    
-    $('[data-toggle="popover"]').popover({
-        trigger: 'hover focus'
-        /*content: function () {
-            return $($(this).data('contentwrapper')).html();
-        }*/
-    });
-    
-    
-    
-    
-    //
-    // Form stuff
-    //
-    
-    // Bind forms to Parsley for validation
+    // Bind form to Parsley for validation, 
+    // and add custom validator functions
     // ------------------------------------
     
-    $('#myForm').parsley({
-        excluded: "input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled]"
-    });
-    
-    
-    // Add custom Parsley validators
-    // -----------------------------
-    
+    $('#myForm').parsley(parsleyOptions);
     addCustomValidators();
     
     
     // Manage showing/hiding form sections
     // -----------------------------------
     
+    // Disable hidden fields right off the bat
+    
+    disableInputsWithin('.hidden');
+    
+    // Also disable fields that are controlled by a toggle switch
+    
+    $('[data-toggled-by]').each(function() {
+        var antecedent = $(this).attr('data-toggled-by');
+        if ($(antecedent).not(':checked')) {
+            disableInputsWithin(this);
+            $(this).addClass('do-not-enable');
+        }
+    });
+    
+    // When a toggle switch changes, toggle its target
+    
+    $(document).on('change', 'input:radio', function () {        
+        $('[data-toggle-target]').filter(':not(.hidden *)').each(function() {
+            var target = $(this).attr('data-toggle-target');
+            if ($(this).is(':checked')) {
+                enableInputsWithin(target);
+                $(target).removeClass('do-not-enable');
+            } else {
+                disableInputsWithin(target);
+                $(target).addClass('do-not-enable');
+            }
+        });
+    });
+    
     // Payment Method
     
-    $(document).on('change', '#selectPaymentMethod', function (evt) {
+    $(document).on('change', '#selectPaymentMethod', function () {
         var cc = '[data-rel-payment-method="creditcard"]';
         var ec = '[data-rel-payment-method="echeck"]';
         switch ($(this).val()) {
             case "Credit Card":
-                hideShow(ec, cc);
+                hideShowFormSections(ec, cc);
                 break;
             case "eCheck":
-                hideShow(cc, ec);
+                hideShowFormSections(cc, ec);
                 break;
             default:
-                hideShow(ec, cc);
+                hideShowFormSections(ec, cc);
         }
     });
     
     // Payment Type
     
-    $(document).on('change', 'input:radio[name="optionsPaymentType"]', function (evt) {
+    $(document).on('change', 'input:radio[name="optionsPaymentType"]', function () {
         var ot = '[data-rel-payment-type="onetime"]';
         var rc = '[data-rel-payment-type="recurring"]';
         switch ($(this).val()) {
             case "One-time":
-                hideShow(rc, ot);
+                hideShowFormSections(rc, ot);
                 break;
             case "Recurring":
-                hideShow(ot, rc);
+                hideShowFormSections(ot, rc);
                 break;
             default:
-                hideShow(rc, ot);
+                hideShowFormSections(rc, ot);
         }
     });
     
@@ -112,48 +88,19 @@ $(document).ready(function () {
         evt.preventDefault();
         validateForm('#myForm', function () {
             // On success
-            console.log("Successful submission");
-            hideShow('#formStep1', '#formStep2');
+            $('#formStep1').addClass('hidden');
+            $('#formStep2').removeClass('hidden');
         }, function () {
             // On error
-            // Nothing beyond Parsley defaults
+            // Nothing beyond Parsley's default behavior
         });
     });
     
     $('#btnBack').on('click', function (evt) {
         evt.preventDefault();
-        hideShow('#formStep2', '#formStep1');
+        $('#formStep2').addClass('hidden');
+        $('#formStep1').removeClass('hidden');
     });
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // 
-    //  Other Vendor Components 
-    //
-    
-    // Initialize Chosen
-    
-    /*
-    $(".chosen-select").chosen({
-        width: "100%", // Workaround for an issue where if the select is initially hidden, width becomes 0
-        disable_search_threshold: 5,
-        allow_single_deselect: true
-    });
-    */
-    
     
     
 });
