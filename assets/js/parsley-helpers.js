@@ -55,6 +55,9 @@ function enableInputsWithin(obj, filter) {
 // 1. Toggling the container's visibility
 // 2. Toggling enabled/disabled on all form field children,
 //    but leaving any .do-not-enable fields alone.
+//
+// Note that these are built to accommodate objects that
+// consist of multiple form sections, not necessarily just one.
 
 function hideFormSection(sections) {
     var s = $(sections);
