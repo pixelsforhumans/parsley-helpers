@@ -1,11 +1,17 @@
-html {
-  height: 100%; }
+/*
+============================================================
 
-body {
-  height: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+    Custom CSS for Parsley Helpers
 
+============================================================
+*/
+/*  Layout utilities
+--------------------------------------*/
+.hidden {
+  display: none !important; }
+
+/*  Content sections
+--------------------------------------*/
 .section-default {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -17,22 +23,23 @@ body {
   border-bottom: solid 1px #ddd;
   margin-bottom: 1rem; }
 
+/*  Form controls
+--------------------------------------*/
 label {
   font-weight: bold; }
   .radio > label, .checkbox > label {
     font-weight: normal; }
 
-.parsley-error {
+/*  Parsley validation messages
+--------------------------------------*/
+/* The form field itself */
+.parsley-error, .parsley-error:focus {
   border-color: #cc0000; }
-  .parsley-error:focus {
-    border-color: #cc0000; }
 
+/* The list of error messages, typically below the field */
 .parsley-errors-list {
   list-style: none outside;
   padding: 5px 0;
   margin-bottom: 0; }
   .parsley-errors-list li {
     color: #cc0000; }
-
-.hidden {
-  display: none !important; }

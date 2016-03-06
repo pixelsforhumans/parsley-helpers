@@ -1,29 +1,21 @@
-// Custom CSS for Parsley Helpers
+/*
+============================================================
 
-//
-// General Layout
-//
+    Custom CSS for Parsley Helpers
 
-// Body
+============================================================
+*/
 
-html {
-    height: 100%;
-}
+/*  Layout utilities
+--------------------------------------*/
 
-body {
-    height: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    //padding-top: 3.4rem; // for fixed navbar & 100% height
+.hidden {
+    display: none !important;
 }
 
 
-
-
-
-//
-// Content Sections
-//
+/*  Content sections
+--------------------------------------*/
 
 @mixin content-section() {
     padding-top: 2rem;
@@ -35,13 +27,7 @@ body {
     @include content-section;
 }
 
-@mixin box() {
-    padding: 1rem;
-    border: solid 1px #ddd;
-}
-
 .form-section:not(:last-of-type) {
-    //@include box;
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-bottom: solid 1px #ddd;
@@ -49,11 +35,8 @@ body {
 }
 
 
-
-
-// 
-// Form controls
-//
+/*  Form controls
+--------------------------------------*/
 
 label {
     font-weight: bold;
@@ -62,23 +45,25 @@ label {
     .checkbox > & {
         font-weight: normal;
     }
+
 }
 
 
+/*  Parsley validation messages
+--------------------------------------*/
 
-
-//
-// Parsley validation messages
-//
+/* The form field itself */
 
 .parsley-error {
-    border-color: #cc0000;
     
+    &, 
     &:focus {
         border-color: #cc0000;
-        //box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(217, 83, 79, 0.6);
     }
+
 }
+
+/* The list of error messages, typically below the field */ 
 
 .parsley-errors-list {
     list-style: none outside;
@@ -88,14 +73,5 @@ label {
     li {
         color: #cc0000; 
     }
+
 }
-
-
-//
-// Utilities
-// 
-
-.hidden {
-    display: none !important;
-}
-
