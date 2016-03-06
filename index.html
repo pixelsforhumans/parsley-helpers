@@ -24,13 +24,15 @@
 </head>
 <body>
 
+    <!--
     <nav class="navbar navbar-full navbar-dark bg-inverse">
         <div class="container">
             <a name="top"></a>
             
-            <a class="navbar-brand" href="index.html">
-                Parsley Helpers            </a>
-            <!--
+            <a class="navbar-brand" href="$basepathindex.html">
+                @import "logo" 
+            </a>
+            
             <ul class="nav navbar-nav">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -42,16 +44,18 @@
                     <a class="nav-link" href="#">Contact</a>
                 </li>
             </ul>
-            -->
+            
         </div>
     </nav>
-<section class="section-default">
+    -->
+<section class="section-default bg-inverse">
     <div class="container">
         
         <h1>Parsley Helpers Demo</h1>
         
-        <p class="lead">
-            Below is a sample form using ParsleyJS for client-side validation.
+        <p class="lead text-inverse-faded">
+            Below is a sample form using <a href="http://parsleyjs.org/">ParsleyJS</a> for client-side validation. <br>
+            <a href="https://github.com/pixelsforhumans/pixels-parsley-helpers">Parsley Helpers Github page</a>
         </p>
         
     </div>
@@ -64,10 +68,18 @@
             
             <h2>Enter your payment information</h2>
             
+            <p class="text-muted">
+                Please note: This form is for demo purposes only. No payment information is collected.
+            </p>
+            
             <div class="row">
                 <div class="col-md-9 col-lg-6">
                     
                     <form id="myForm" class="p-y-1">
+                        
+                        <div class="form-error-banner alert alert-danger hidden">
+                            <strong>Whoops!</strong> There seems to be a problem; please check your entries below. Your payment has not been submitted.
+                        </div>
                         
                         <section class="form-section">
                             
@@ -159,6 +171,7 @@
                             <fieldset class="form-group">
                                 <label>Card number</label>
                                 <input id="inputCreditCardNumber" class="form-control" type="text" data-parsley-creditcard required>
+                                <small class="text-muted">Use '4444111111111111' &mdash; it's fake, but it validates.</small>
                             </fieldset>
                             
                             <fieldset class="form-group">
@@ -220,22 +233,28 @@
                         <section class="form-section">
                             
                             <h3>Authorization</h3>
-                        
-                            <p data-rel-payment-type="onetime">
-                                By clicking Submit Payment, I authorize AcmeCorp to charge/debit the payment amount indicated above, one time.
-                            </p>
                             
-                            <p class="hidden" data-rel-payment-type="recurring">
+                            <div class="alert alert-info">
+                            <span data-rel-payment-type="onetime">
+                                By clicking Submit Payment, I authorize AcmeCorp to charge/debit the payment amount indicated above, one time.
+                            </span>
+                            
+                            <span class="hidden" data-rel-payment-type="recurring">
                                 By clicking Submit Payment, I authorize AcmeCorp to charge/debit my payment account as indicated above, on the 15th of each month.
-                            </p>
+                            </span>
+                            </div>
                             
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="inputAuthorize" id="inputAuthorize" required> I understand the statement above.
+                                    <input type="checkbox" name="inputAuthorize" id="inputAuthorize" required data-parsley-error-message="You must check this box in order to proceed."> I understand the statement above.
                                 </label>
                             </div>
                         
                             <button type="submit" id="btnSubmitPayment" class="btn btn-primary">Submit Payment</button>
+                            
+                            <p class="m-t-1">
+                                <small class="text-muted">Once again: We promise this form is fake. No payment information is collected.</small>
+                            </p>
                         
                         </section>
                     
@@ -266,7 +285,7 @@
     <footer class="site-footer">
         <div class="container">
     
-            <p class="p-t-2 p-b-2 text-muted">By Jim O'Neill, Pixels for Humans, LLC.</p>
+            <p class="p-t-2 p-b-2 text-muted">Made with love by <a href="http://www.pixelsforhumans.com">Pixels for Humans</a>, a UX design agency.</p>
     
         </div>
     </footer>

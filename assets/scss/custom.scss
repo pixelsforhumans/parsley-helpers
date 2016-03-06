@@ -27,11 +27,35 @@
     @include content-section;
 }
 
-.form-section:not(:last-of-type) {
+.form-section {
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-bottom: solid 1px #ddd;
     margin-bottom: 1rem;
+    
+    &:last-of-type {
+        border-bottom: none;
+    }
+
+}
+
+.bg-light {
+    background-color: #f3f3f3;
+}
+
+.text-inverse-faded {
+    color: #bbb;
+}
+
+.bg-inverse {
+    
+    a, 
+    a:hover, 
+    a:active, 
+    a:focus {
+        color: lighten(#0275d8, 25%);
+    }
+    
 }
 
 
@@ -58,7 +82,7 @@ label {
     
     &, 
     &:focus {
-        border-color: #cc0000;
+        border-color: #bb0000;
     }
 
 }
@@ -71,7 +95,7 @@ label {
     margin-bottom: 0;
 
     li {
-        color: #cc0000; 
+        color: #a94442; 
     }
 
 }

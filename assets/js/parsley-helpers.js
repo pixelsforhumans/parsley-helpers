@@ -105,6 +105,11 @@ function validateForm(form, success, error) {
  *    all fields in that set (and vice versa when we re-show it). 
  * 3. Re-initialize Parsley every time a change happens that hides or shows 
  *    a set of form fields, to make sure it requires only the ones shown.
+ * 
+ * Note: Our preference is to specify [required] explicitly in the markup as 
+ * an attribute on each required field, since that should not change. Whereas 
+ * we prefer *not* to specify [disabled] in the markup, since that's a property 
+ * which may change, and we can apply it initially where needed via JavaScript.
  */
 
 /*  Custom Parsley initialization

@@ -30,6 +30,7 @@ $(document).ready(function () {
     
     /**
      * Right away, disable form fields inside any container that's hidden. 
+     * We want Parsley to ignore these. 
      */
     disableInputsWithin('.' + hiddenClass);
     
@@ -38,7 +39,7 @@ $(document).ready(function () {
     --------------------------------------*/
     
     /**
-     * The basic pattern we use for this feature consists of:
+     * The basic markup pattern we use for this feature consists of:
      * 1. A form field with multiple options (such as a <select> or radio 
      *    button group).
      * 2. One or more other elements in the DOM whose display state 
@@ -48,7 +49,7 @@ $(document).ready(function () {
      * option, we use custom `data-` attributes in the markup, such as 
      * `[data-rel-payment-method="creditcard"]`. This may feel verbose and 
      * awkward, but it makes more semantic sense than using CSS classes to 
-     * specify this information.
+     * specify this information. Of course, you can use whatever you like.
      */
     
     /**
@@ -99,9 +100,9 @@ $(document).ready(function () {
     
     /**
      * This feature demonstrates a slightly different approach than the basic 
-     * conditional-areas show/hide behavior.  
+     * conditional-areas show/hide behavior, and is functionally separate.
      * 
-     * The expected pattern is something like:
+     * The expected markup pattern is something like:
      * 1. A group of radio options.
      * 2. One or more of the radio options contains an associated <input> or 
      *    <select> whose value is required if its parent option is checked.
@@ -180,12 +181,15 @@ $(document).ready(function () {
         evt.preventDefault();
         validateForm('#myForm', function () {
             // On success
+            // Hide error banner if it's showing
+            $('.form-error-banner').addClass(hiddenClass);
             // Hide step 1, show step 2
             $('#formStep1').addClass(hiddenClass);
             $('#formStep2').removeClass(hiddenClass);
         }, function () {
             // On error
-            // Do nothing beyond Parsley's default behavior
+            // Show error banner at the top of the form
+            $('.form-error-banner').removeClass(hiddenClass);
         });
     });
     

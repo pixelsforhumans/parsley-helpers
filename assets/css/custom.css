@@ -17,11 +17,25 @@
   padding-bottom: 2rem;
   border-bottom: solid 1px #ccc; }
 
-.form-section:not(:last-of-type) {
+.form-section {
   padding-top: 1rem;
   padding-bottom: 1rem;
   border-bottom: solid 1px #ddd;
   margin-bottom: 1rem; }
+  .form-section:last-of-type {
+    border-bottom: 0; }
+
+.bg-light {
+  background-color: #f3f3f3; }
+
+.text-inverse-faded {
+  color: #bbb; }
+
+.bg-inverse a,
+.bg-inverse a:hover,
+.bg-inverse a:active,
+.bg-inverse a:focus {
+  color: #5cb3fd; }
 
 /*  Form controls
 --------------------------------------*/
@@ -34,7 +48,7 @@ label {
 --------------------------------------*/
 /* The form field itself */
 .parsley-error, .parsley-error:focus {
-  border-color: #cc0000; }
+  border-color: #bb0000; }
 
 /* The list of error messages, typically below the field */
 .parsley-errors-list {
@@ -42,4 +56,4 @@ label {
   padding: 5px 0;
   margin-bottom: 0; }
   .parsley-errors-list li {
-    color: #cc0000; }
+    color: #a94442; }
