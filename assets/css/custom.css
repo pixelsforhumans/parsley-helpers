@@ -1,0 +1,59 @@
+/*
+============================================================
+
+    Custom CSS for Parsley Helpers
+
+============================================================
+*/
+/*  Layout utilities
+--------------------------------------*/
+.hidden {
+  display: none !important; }
+
+/*  Content sections
+--------------------------------------*/
+.section-default {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: solid 1px #ccc; }
+
+.form-section {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px #ddd;
+  margin-bottom: 1rem; }
+  .form-section:last-of-type {
+    border-bottom: 0; }
+
+.bg-light {
+  background-color: #f3f3f3; }
+
+.text-inverse-faded {
+  color: #bbb; }
+
+.bg-inverse a,
+.bg-inverse a:hover,
+.bg-inverse a:active,
+.bg-inverse a:focus {
+  color: #5cb3fd; }
+
+/*  Form controls
+--------------------------------------*/
+label {
+  font-weight: bold; }
+  .radio > label, .checkbox > label {
+    font-weight: normal; }
+
+/*  Parsley validation messages
+--------------------------------------*/
+/* The form field itself */
+.parsley-error, .parsley-error:focus {
+  border-color: #bb0000; }
+
+/* The list of error messages, typically below the field */
+.parsley-errors-list {
+  list-style: none outside;
+  padding: 5px 0;
+  margin-bottom: 0; }
+  .parsley-errors-list li {
+    color: #a94442; }

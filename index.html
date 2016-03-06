@@ -1,0 +1,311 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="icon" href="favicon.ico">
+    
+    <title>Parsley Helpers</title>
+        
+    <!-- Bootstrap dist -->
+    <link rel="stylesheet" href="assets/components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    
+</head>
+<body>
+
+    <!--
+    <nav class="navbar navbar-full navbar-dark bg-inverse">
+        <div class="container">
+            <a name="top"></a>
+            
+            <a class="navbar-brand" href="$basepathindex.html">
+                @import "logo" 
+            </a>
+            
+            <ul class="nav navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            
+        </div>
+    </nav>
+    -->
+<section class="section-default bg-inverse">
+    <div class="container">
+        
+        <h1>Parsley Helpers Demo</h1>
+        
+        <p class="lead text-inverse-faded">
+            Below is a sample form using <a href="http://parsleyjs.org/">ParsleyJS</a> for client-side validation. <br>
+            <a href="https://github.com/pixelsforhumans/pixels-parsley-helpers">Parsley Helpers Github page</a>
+        </p>
+        
+    </div>
+</section>
+    
+<section class="section-default">
+    
+    <div class="form-step" id="formStep1">
+        <div class="container">
+            
+            <h2>Enter your payment information</h2>
+            
+            <p class="text-muted">
+                Please note: This form is for demo purposes only. No payment information is collected.
+            </p>
+            
+            <div class="row">
+                <div class="col-md-9 col-lg-6">
+                    
+                    <form id="myForm" class="p-y-1">
+                        
+                        <div class="form-error-banner alert alert-danger hidden">
+                            <strong>Whoops!</strong> There seems to be a problem; please check your entries below. Your payment has not been submitted.
+                        </div>
+                        
+                        <section class="form-section">
+                            
+                            <fieldset class="form-group">                                        
+                                <label for="selectPaymentMethod">Payment method</label> 
+                                <select id="selectPaymentMethod" class="form-control c-select">
+                                    <option value="Credit Card">Credit Card</option>
+                                    <option value="eCheck">eCheck</option>
+                                </select>
+                            </fieldset>
+                            
+                            <fieldset class="form-group">
+                                <label>Payment Type</label>
+                                <div class="radio">
+                                    <label for="optionsPaymentType1">
+                                        <input type="radio" name="optionsPaymentType" id="optionsPaymentType1" value="One-time" checked>
+                                        Make a one-time payment 
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label for="optionsPaymentType2">
+                                        <input type="radio" name="optionsPaymentType" id="optionsPaymentType2" value="Recurring">
+                                        Set up a recurring automatic monthly payment
+                                    </label>
+                                </div>
+                            </fieldset>
+                            
+                        </section>
+                        <section class="form-section" data-rel-payment-type="onetime">
+                        
+                            <h3>One-time payment</h3>
+                            
+                            <fieldset class="form-group">
+                                <label>Payment Amount</label>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsPaymentAmount" id="optionsPaymentAmount1" value="Balance" checked>
+                                        Current account balance
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsPaymentAmount" id="optionsPaymentAmount2" value="Minimum">
+                                        Minimum payment due
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label id="labelCustomPaymentAmount">
+                                        <input type="radio" name="optionsPaymentAmount" id="optionsPaymentAmount3" value="Custom" data-toggle-target="#inputGrpCustomPaymentAmount">
+                                        Specific amount: 
+                                        <div class="input-group" id="inputGrpCustomPaymentAmount" data-toggled-by="#optionsPaymentAmount3" style="margin-top: 0.25em;">
+                                            <span class="input-group-addon">$</span>
+                                            <input type="text" id="inputCustomPaymentAmount" class="form-control" aria-label="Specific amount" data-parsley-type="number" data-parsley-errors-container="#labelCustomPaymentAmount" style="width: 10em;" required>
+                                        </div>
+                                    </label>
+                                </div>
+                            </fieldset>
+                            
+                        </section>
+                        <section class="form-section hidden" data-rel-payment-type="recurring">
+                        
+                            <h3>Recurring monthly payment</h3>
+                            
+                            <fieldset class="form-group">
+                                <label>Payment Amount</label>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRecurPaymentAmount" id="optionsRecurPaymentAmount1" value="Balance" checked>
+                                        Full account balance each month
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label id="labelRecurCustomPaymentAmount">
+                                        <input type="radio" name="optionsRecurPaymentAmount" id="optionsRecurPaymentAmount2" value="Custom" data-toggle-target="#inputGrpRecurCustomPaymentAmount">
+                                        Specific amount each month: 
+                                        <div class="input-group" id="inputGrpRecurCustomPaymentAmount" data-toggled-by="#optionsRecurPaymentAmount2" style="margin-top: 0.25em;">
+                                            <span class="input-group-addon">$</span>
+                                            <input type="text" id="inputRecurCustomPaymentAmount" class="form-control" aria-label="Specific amount" data-parsley-type="number" data-parsley-errors-container="#labelRecurCustomPaymentAmount" style="width: 10em;" required>
+                                        </div>
+                                    </label>
+                                </div>
+                            </fieldset>
+                            
+                        </section>
+                        <section class="form-section" data-rel-payment-method="creditcard">
+                        
+                            <h3>Credit card information</h3>
+                                
+                            <fieldset class="form-group">
+                                <label>Card number</label>
+                                <input id="inputCreditCardNumber" class="form-control" type="text" data-parsley-creditcard required>
+                                <small class="text-muted">Use '4444111111111111' &mdash; it's fake, but it validates.</small>
+                            </fieldset>
+                            
+                            <fieldset class="form-group">
+                                <label>Name on card</label>
+                                <input id="inputCreditCardholderName" class="form-control" type="text" required>
+                            </fieldset>
+                            
+                            <fieldset class="form-group">
+                                <label>Expiration date</label>
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <select id="selectCreditCardExpiryMonth" class="form-control c-select">
+                                            <option>01</option>
+                                            <option>02</option>
+                                            <option>03</option>
+                                            <option>04</option>
+                                            <option>05</option>
+                                            <option>06</option>
+                                            <option>07</option>
+                                            <option>08</option>
+                                            <option>09</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option>12</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <select id="selectCreditCardExpiryYear" class="form-control c-select">
+                                            <option>2015</option>
+                                            <option>2016</option>
+                                            <option>2017</option>
+                                            <option>2018</option>
+                                            <option>2019</option>
+                                            <option>2020</option>
+                                            <option>2021</option>
+                                            <option>2022</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        
+                        </section>
+                        <section class="form-section hidden" data-rel-payment-method="echeck">
+                        
+                            <h3>Bank account information</h3>
+                            
+                            <fieldset class="form-group">
+                                <label>Account number</label>
+                                <input id="inputBankAccountNumber" class="form-control" type="text" required>
+                            </fieldset>
+                            
+                            <fieldset class="form-group">
+                                <label>Bank routing number</label>
+                                <input id="inputBankRoutingNumber" class="form-control" type="text" required>
+                            </fieldset>
+                        
+                        </section>
+                        
+                        <section class="form-section">
+                            
+                            <h3>Authorization</h3>
+                            
+                            <div class="alert alert-info">
+                            <span data-rel-payment-type="onetime">
+                                By clicking Submit Payment, I authorize AcmeCorp to charge/debit the payment amount indicated above, one time.
+                            </span>
+                            
+                            <span class="hidden" data-rel-payment-type="recurring">
+                                By clicking Submit Payment, I authorize AcmeCorp to charge/debit my payment account as indicated above, on the 15th of each month.
+                            </span>
+                            </div>
+                            
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="inputAuthorize" id="inputAuthorize" required data-parsley-error-message="You must check this box in order to proceed."> I understand the statement above.
+                                </label>
+                            </div>
+                        
+                            <button type="submit" id="btnSubmitPayment" class="btn btn-primary">Submit Payment</button>
+                            
+                            <p class="m-t-1">
+                                <small class="text-muted">Once again: We promise this form is fake. No payment information is collected.</small>
+                            </p>
+                        
+                        </section>
+                    
+                    </form>
+                
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="form-step hidden" id="formStep2">
+        <div class="container">
+            
+            <h2>Payment Confirmation</h2>
+            
+            <p>Your payment was submitted successfully. Have a nice day.</p>
+            
+            <p>
+                <a href="#" id="btnBack" class="btn btn-secondary">Back</a>
+            </p>
+            
+        </div>
+    </div>
+    
+</section>
+
+    <footer class="site-footer">
+        <div class="container">
+    
+            <p class="p-t-2 p-b-2 text-muted">Made with love by <a href="http://www.pixelsforhumans.com">Pixels for Humans</a>, a UX design agency.</p>
+    
+        </div>
+    </footer>
+    
+    <!-- All the JavaScript -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <!-- Tether library, for Bootstrap tooltips/popovers -->
+    <script src="assets/js/vendor/tether.min.js"></script>
+    <!-- Bootstrap core plugins -->
+    <script src="assets/components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Parsley -->
+    <script src="assets/components/parsley/parsley.js"></script>
+    <!-- Parsley Helpers -->
+    <script src="assets/js/parsley-helpers.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/custom.js"></script>
+
+</body>
+</html>
