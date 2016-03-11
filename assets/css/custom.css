@@ -7,6 +7,13 @@
 */
 /*  Layout utilities
 --------------------------------------*/
+/**
+ * ".hidden" is the only CSS class that's required for our display-toggle 
+ * functions. Everything else below is demo-only, purely for visual appeal.
+ * 
+ * You can call this class whatever you like, and specify your preferred 
+ * class name in `.parsley-helpers.js`.
+ */
 .hidden {
   display: none !important; }
 
@@ -23,22 +30,23 @@
   border-bottom: solid 1px #ddd;
   margin-bottom: 1rem; }
   .form-section:last-of-type {
-    border-bottom: 0; }
+    border-bottom: none; }
 
+/* Expanding on Bootstrap's visual theme classes */
 .bg-light {
   background-color: #f3f3f3; }
 
 .text-inverse-faded {
   color: #bbb; }
 
-.bg-inverse a,
-.bg-inverse a:hover,
-.bg-inverse a:active,
-.bg-inverse a:focus {
+.link-inverse, .link-inverse:hover, .link-inverse:active, .link-inverse:focus {
   color: #5cb3fd; }
 
 /*  Form controls
 --------------------------------------*/
+/**
+ * Style most form labels with bold font, except for radio & checkbox text.
+ */
 label {
   font-weight: bold; }
   .radio > label, .checkbox > label {
@@ -46,11 +54,15 @@ label {
 
 /*  Parsley validation messages
 --------------------------------------*/
-/* The form field itself */
+/**
+ * The form field itself 
+ */
 .parsley-error, .parsley-error:focus {
   border-color: #bb0000; }
 
-/* The list of error messages, typically below the field */
+/**
+ * The list of error messages, typically below the field
+ */
 .parsley-errors-list {
   list-style: none outside;
   padding: 5px 0;
