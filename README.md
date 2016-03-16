@@ -22,8 +22,8 @@ We've included these basic features that we have found useful:
 
 * __Basic validation function__ – Tells Parsley to validate a form, with a success callback and an error callback.
 * __Add custom validators__ – We wrote or found a few custom validators (not included with Parsley out of the box) based on regular expressions, for validating dates, phone numbers, zip codes, and credit card numbers.
-* __Enable/disable form fields within a content section__ – The basis for making sure Parsley validates the right fields.
-* __Show/hide a content section__ – Builds on the enable/disable behavior above.
+* __Enable/disable form fields within a content section__ – The basis for making sure Parsley validates the correct fields.
+* __Show/hide a content section__ – Builds on the enable/disable behavior above, to actually show or hide a content section in the UI while ensuring that Parsley will still behave properly.
 
 These functions are all defined in `parsley-helpers.js.` The [demo page](http://pixelsforhumans.github.io/parsley-helpers/) then provides examples for how you might use them.
 
