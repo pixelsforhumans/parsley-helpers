@@ -41,4 +41,5 @@ The major files to look at are as follows:
 
 * This is probably obvious, but these Parsley Helpers functions are all based in jQuery (as is Parsley itself).
 * This may also be obvious, but all of this was written by folks who are not exactly Level 10 JavaScript Warlocks. We think it's pretty airtight, but we are always learning. If you see things that could be made better, please fork/contribute/get in touch. Thanks!
+* The Parsley Helper functions do not depend on any front-end framework (just the jQuery library). The [demo page](http://pixelsforhumans.github.io/parsley-helpers/) uses [Bootstrap v4 alpha](http://v4-alpha.getbootstrap.com/) for styling purposes, but this is purely optional. 
 
